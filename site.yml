@@ -1,0 +1,11 @@
+---
+- name: Базовая настройка сервера
+  hosts: servers
+  become: true
+  vars:
+    ssh_port: 22
+    allowed_tcp_ports: [22, 80, 443]
+  roles:
+    - base
+    - ssh_hardening
+    - nginx
